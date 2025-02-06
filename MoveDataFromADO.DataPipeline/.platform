@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "MoveDataFromADO"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b3d99272-4a96-bd6e-42dc-301ba3ca3bd0"
+  }
+}
