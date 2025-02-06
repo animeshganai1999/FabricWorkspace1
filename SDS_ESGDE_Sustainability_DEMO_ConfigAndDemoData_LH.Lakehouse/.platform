@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "SDS_ESGDE_Sustainability_DEMO_ConfigAndDemoData_LH"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "94bc22d2-c5bf-b6fa-46be-0907bbac5868"
+  }
+}
