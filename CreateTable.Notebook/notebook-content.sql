@@ -31,6 +31,6 @@ CREATE TABLE my_table (
 -- METADATA ********************
 
 -- META {
--- META   "language": "sparksql",
+-- META   "language": "sql",
 -- META   "language_group": "synapse_pyspark"
 -- META }
