@@ -1,0 +1,327 @@
+table AggMeasuresProductivity
+	lineageTag: 90e706f2-73d2-438c-9c26-817cfadccae8
+	sourceLineageTag: [MdsfGold].[AggMeasuresProductivity]
+
+	/// Calculates the average cycle time by dividing the actual unit busy time by the produced quantity for each row in the 'AggMeasuresProductivity' table.
+	measure KpiActualCycleTime =
+			AVERAGEX(
+			    'AggMeasuresProductivity',
+			    'AggMeasuresProductivity'[ActualUnitBusyTime] / 'AggMeasuresProductivity'[ProducedQuantity]
+			)
+		lineageTag: ddd9b064-23ac-49a3-8a60-13d5dd004bae
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the Key Performance Indicator (KPI) for availability by taking the average of the actual production time divided by the planned busy time, multiplied by 100 to get a percentage.
+	measure KpiAvailability =
+			100*AVERAGEX(
+			    'AggMeasuresProductivity',
+			    'AggMeasuresProductivity'[ActualProductionTime] / 'AggMeasuresProductivity'[PlannedBusyTime]
+			)
+		lineageTag: db06130e-1d4b-43a6-b4df-e0d32ac6aca6
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// This measure calculates the average effectiveness of a Key Performance Indicator (KPI) by dividing the produced quantity by the actual production time, and then dividing the result by the ideal cycle time.
+	measure KpiEffectiveness =
+			AVERAGEX(
+			    'AggMeasuresProductivity',
+			    'AggMeasuresProductivity'[ProducedQuantity] / 'AggMeasuresProductivity'[ActualProductionTime]
+			) / 'AggMeasuresProductivity'[KpiIdealCycleTime]
+		lineageTag: 188f61bb-bd56-435e-8445-102744cb7d80
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the average ideal cycle time by dividing the planned busy time by the planned order quantity for each row in the 'AggMeasuresProductivity' table.
+	measure KpiIdealCycleTime =
+			AVERAGEX(
+			    'AggMeasuresProductivity',
+			    'AggMeasuresProductivity'[PlannedBusyTime] / 'AggMeasuresProductivity'[PlannedOrderQuantity]
+			)
+		lineageTag: 53b86b8d-4035-440b-a4a9-077863af46e1
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the average throughput by dividing the produced quantity by the actual unit busy time for each row in the 'AggMeasuresProductivity' table.
+	measure KpiThroughput =
+			AVERAGEX(
+			    'AggMeasuresProductivity',
+			    'AggMeasuresProductivity'[ProducedQuantity] / 'AggMeasuresProductivity'[ActualUnitBusyTime]
+			)
+		lineageTag: 80135da4-34d0-4f8f-8c8a-2e8e3ca2ece9
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the Overall Equipment Efficiency (OEE) Index by multiplying the Availability, Effectiveness, and Quality Ratio KPIs from the AggMeasuresProductivity table.
+	measure KpiOEEIndex = 'AggMeasuresProductivity'[KpiAvailability] * 'AggMeasuresProductivity'[KpiEffectiveness] * 'AggMeasuresQuality'[KpiQualityRatio]
+		lineageTag: 88f37367-653b-4840-b7b8-d8efbd3b3972
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AggLevelDefinitionId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9777df00-12fb-43c4-8ec0-95c744fe235f
+		sourceLineageTag: AggLevelDefinitionId
+		summarizeBy: none
+		sourceColumn: AggLevelDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimIntervalId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4a45c9b6-d25e-4d56-8ad9-06ad903fff6a
+		sourceLineageTag: DimIntervalId
+		summarizeBy: none
+		sourceColumn: DimIntervalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimShiftId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6e456149-a341-48db-a520-7b9dd28c5d36
+		sourceLineageTag: DimShiftId
+		summarizeBy: none
+		sourceColumn: DimShiftId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimEnterpriseId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4adb0512-5371-4480-9e1d-82911fed4cdb
+		sourceLineageTag: DimEnterpriseId
+		summarizeBy: none
+		sourceColumn: DimEnterpriseId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimSiteId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a55904b3-824b-4165-94c5-4464136e5bc9
+		sourceLineageTag: DimSiteId
+		summarizeBy: none
+		sourceColumn: DimSiteId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimAreaId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bab2a406-7944-470e-8cf4-2b2ed1103241
+		sourceLineageTag: DimAreaId
+		summarizeBy: none
+		sourceColumn: DimAreaId
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column DimWorkCenterId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7f83ed4b-15be-45ed-96ce-679f92cb688b
+		sourceLineageTag: DimWorkCenterId
+		summarizeBy: none
+		sourceColumn: DimWorkCenterId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimWorkUnitId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4a9a0512-fed1-4924-9685-bf548fdeeef7
+		sourceLineageTag: DimWorkUnitId
+		summarizeBy: none
+		sourceColumn: DimWorkUnitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimProducedMaterialId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 860f04cd-3e00-4fe7-92f5-fcc030a0f2d4
+		sourceLineageTag: DimProducedMaterialId
+		summarizeBy: none
+		sourceColumn: DimProducedMaterialId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimJobId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6aa26848-0ef4-4c81-8ebc-f3d9a35b52f3
+		sourceLineageTag: DimJobId
+		summarizeBy: none
+		sourceColumn: DimJobId
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column PlannedOrderQuantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 50788840-8e3b-4754-afe8-dbdc2d42b5c4
+		sourceLineageTag: PlannedOrderQuantity
+		summarizeBy: sum
+		sourceColumn: PlannedOrderQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProducedQuantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: c15ad154-3341-44c8-bec9-7fa38eebea89
+		sourceLineageTag: ProducedQuantity
+		summarizeBy: sum
+		sourceColumn: ProducedQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoodQuantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 12cc99e7-9a10-4e61-82bb-3374d8cff8a8
+		sourceLineageTag: GoodQuantity
+		summarizeBy: sum
+		sourceColumn: GoodQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedBusyTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 31b6fece-8b08-44ed-8798-854bd72c35c0
+		sourceLineageTag: PlannedBusyTime
+		summarizeBy: sum
+		sourceColumn: PlannedBusyTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedDownTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: baedf859-5fee-4752-a745-13c81ce704f4
+		sourceLineageTag: PlannedDownTime
+		summarizeBy: sum
+		sourceColumn: PlannedDownTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualUnitBusyTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 368e7670-bea8-4f9c-a42d-0fa45a93b7b1
+		sourceLineageTag: ActualUnitBusyTime
+		summarizeBy: sum
+		sourceColumn: ActualUnitBusyTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualUnitDownTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 04c5ef95-3dda-45ca-8cdf-cefbc63bd2c0
+		sourceLineageTag: ActualUnitDownTime
+		summarizeBy: sum
+		sourceColumn: ActualUnitDownTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualProductionTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: aa1268f1-6f29-449f-9f62-da1a0384c874
+		sourceLineageTag: ActualProductionTime
+		summarizeBy: sum
+		sourceColumn: ActualProductionTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualUnitDelayTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: b6b38332-3c11-418f-bcde-8d545453df05
+		sourceLineageTag: ActualUnitDelayTime
+		summarizeBy: sum
+		sourceColumn: ActualUnitDelayTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlannedOrderExecutionTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 367b7f18-cb14-4793-9988-6745b1b797ed
+		sourceLineageTag: PlannedOrderExecutionTime
+		summarizeBy: sum
+		sourceColumn: PlannedOrderExecutionTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualOrderExecutionTime
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: c86c3fe0-7348-469f-aca5-9b7b00ae6df1
+		sourceLineageTag: ActualOrderExecutionTime
+		summarizeBy: sum
+		sourceColumn: ActualOrderExecutionTime
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AggMeasuresProductivity = entity
+		mode: directLake
+		source
+			entityName: AggMeasuresProductivity
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

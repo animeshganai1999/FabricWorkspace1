@@ -1,0 +1,46 @@
+table IntervalDefinition
+	lineageTag: 91a2d299-d0e5-49ef-9431-a1446d0da991
+	sourceLineageTag: [MdsfGold].[IntervalDefinition]
+
+	column IntervalDefinitionId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4815b089-ae70-4642-8207-f123fe6a5ad1
+		sourceLineageTag: IntervalDefinitionId
+		summarizeBy: none
+		sourceColumn: IntervalDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GranularitySeconds
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 36066d4b-cb46-4f6b-a52b-ead5c6a31fbe
+		sourceLineageTag: GranularitySeconds
+		summarizeBy: none
+		sourceColumn: GranularitySeconds
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b54096a7-4582-4091-8c3e-6a51b71e4783
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition IntervalDefinition = entity
+		mode: directLake
+		source
+			entityName: IntervalDefinition
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

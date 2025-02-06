@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "CrossTenantADLS"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0eb83d66-9f1c-a120-4606-bb274bcc1f30"
+  }
+}

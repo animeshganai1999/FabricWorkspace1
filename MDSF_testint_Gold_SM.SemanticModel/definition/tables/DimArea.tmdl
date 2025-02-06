@@ -1,0 +1,82 @@
+table DimArea
+	lineageTag: b881596f-54fe-49dc-b7b3-f3f6de44bf6f
+	sourceLineageTag: [MdsfGold].[DimArea]
+
+	column AreaRecordId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: b9de9f92-b3cb-4fa1-8576-8165cefb029f
+		sourceLineageTag: AreaRecordId
+		summarizeBy: none
+		sourceColumn: AreaRecordId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AreaId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a6900742-95c8-417c-8925-cfd014d80931
+		sourceLineageTag: AreaId
+		summarizeBy: none
+		sourceColumn: AreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AreaName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b2695df0-7c30-4c8b-a9ca-97845e921e67
+		sourceLineageTag: AreaName
+		summarizeBy: none
+		sourceColumn: AreaName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveRecordStartTimestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3a87134e-88d2-4fa7-810a-e0ce4421f3a0
+		sourceLineageTag: ActiveRecordStartTimestamp
+		summarizeBy: none
+		sourceColumn: ActiveRecordStartTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveRecordEndTimestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0df058a2-7e25-42d2-9c3b-c6261b553644
+		sourceLineageTag: ActiveRecordEndTimestamp
+		summarizeBy: none
+		sourceColumn: ActiveRecordEndTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentSiteId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: df576769-a903-4c39-bf71-49f1eb2f69d3
+		sourceLineageTag: ParentSiteId
+		summarizeBy: none
+		sourceColumn: ParentSiteId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimArea = entity
+		mode: directLake
+		source
+			entityName: DimArea
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

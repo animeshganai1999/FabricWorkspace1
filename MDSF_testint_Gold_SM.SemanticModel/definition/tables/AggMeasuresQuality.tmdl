@@ -1,0 +1,201 @@
+table AggMeasuresQuality
+	lineageTag: 2a98296b-2f1c-43ea-9ddc-2f808e49f4fe
+	sourceLineageTag: [MdsfGold].[AggMeasuresQuality]
+
+	/// Calculates the average quality ratio by dividing the good quantity by the produced quantity for each row in the 'AggMeasuresQuality' table.
+	measure KpiQualityRatio =
+			AVERAGEX(
+			    'AggMeasuresQuality',
+			    'AggMeasuresQuality'[GoodQuantity] / 'AggMeasuresQuality'[ProducedQuantity]
+			)
+		lineageTag: cc5f3d47-1369-4d98-9258-2ff3ee17ba22
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AggLevelDefinitionId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d417f541-a6ec-46b1-9d34-5c065d45c3a9
+		sourceLineageTag: AggLevelDefinitionId
+		summarizeBy: none
+		sourceColumn: AggLevelDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimIntervalId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 523cf0d2-c4cc-44e4-a59f-56bc176c3429
+		sourceLineageTag: DimIntervalId
+		summarizeBy: none
+		sourceColumn: DimIntervalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimShiftId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c4cba528-72fb-4427-b4c8-651502ecaee8
+		sourceLineageTag: DimShiftId
+		summarizeBy: none
+		sourceColumn: DimShiftId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimEnterpriseId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a4f758a2-c32f-44a0-9ac7-d02d037124e0
+		sourceLineageTag: DimEnterpriseId
+		summarizeBy: none
+		sourceColumn: DimEnterpriseId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimSiteId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b84612a2-6911-4ba3-a30b-946fa02760eb
+		sourceLineageTag: DimSiteId
+		summarizeBy: none
+		sourceColumn: DimSiteId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimAreaId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 959ad91f-4072-438f-aa70-e376e7062bff
+		sourceLineageTag: DimAreaId
+		summarizeBy: none
+		sourceColumn: DimAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimWorkCenterId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cde771fc-32b3-4e50-b28f-02699664ade0
+		sourceLineageTag: DimWorkCenterId
+		summarizeBy: none
+		sourceColumn: DimWorkCenterId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimWorkUnitId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1cd8bc4c-479a-45a0-9e7f-a6479985cab3
+		sourceLineageTag: DimWorkUnitId
+		summarizeBy: none
+		sourceColumn: DimWorkUnitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimProducedMaterialId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e056988d-c6b0-4fe3-be70-ee8a9f4eed62
+		sourceLineageTag: DimProducedMaterialId
+		summarizeBy: none
+		sourceColumn: DimProducedMaterialId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimJobId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: bc45c858-9381-4dc8-8262-9c99e5c5f40e
+		sourceLineageTag: DimJobId
+		summarizeBy: none
+		sourceColumn: DimJobId
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column ProducedQuantity
+		dataType: double
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: a23b515e-c9ce-486d-97cb-eb939d378c0e
+		sourceLineageTag: ProducedQuantity
+		summarizeBy: sum
+		sourceColumn: ProducedQuantity
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoodQuantity
+		dataType: double
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 0a8ced5d-7ff4-41d5-8ead-eacfc9bc5091
+		sourceLineageTag: GoodQuantity
+		summarizeBy: sum
+		sourceColumn: GoodQuantity
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScrapQuantity
+		dataType: double
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: eb6cf2ed-fbd1-4e6f-93a8-ef44fcfb1a94
+		sourceLineageTag: ScrapQuantity
+		summarizeBy: sum
+		sourceColumn: ScrapQuantity
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReworkQuantity
+		dataType: double
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: efb77039-5803-43a0-9156-9095de02803b
+		sourceLineageTag: ReworkQuantity
+		summarizeBy: sum
+		sourceColumn: ReworkQuantity
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerRejectedQuantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: a190dd59-56a9-4179-823f-aa5d2d41348e
+		sourceLineageTag: CustomerRejectedQuantity
+		summarizeBy: sum
+		sourceColumn: CustomerRejectedQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AggMeasuresQuality = entity
+		mode: directLake
+		source
+			entityName: AggMeasuresQuality
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

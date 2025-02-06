@@ -1,0 +1,84 @@
+table DimWorkCenter
+	lineageTag: 8bc50c40-291b-44d6-b7fa-b11cf38d877f
+	sourceLineageTag: [MdsfGold].[DimWorkCenter]
+
+	column WorkCenterRecordId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0434a74a-a9df-4fa3-ac91-b3017de53d0f
+		sourceLineageTag: WorkCenterRecordId
+		summarizeBy: none
+		sourceColumn: WorkCenterRecordId
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column WorkCenterId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5b0a21a3-1482-4cfc-9488-acb6bce5f2d2
+		sourceLineageTag: WorkCenterId
+		summarizeBy: none
+		sourceColumn: WorkCenterId
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkCenterName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: fc82b07d-6e77-4aac-8dd5-1e805bcb453f
+		sourceLineageTag: WorkCenterName
+		summarizeBy: none
+		sourceColumn: WorkCenterName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveRecordStartTimestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0c98a9f9-6093-41e9-b8bc-8f8dc31ffdf7
+		sourceLineageTag: ActiveRecordStartTimestamp
+		summarizeBy: none
+		sourceColumn: ActiveRecordStartTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveRecordEndTimestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c929881f-b295-494a-bda2-28ec83546882
+		sourceLineageTag: ActiveRecordEndTimestamp
+		summarizeBy: none
+		sourceColumn: ActiveRecordEndTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentAreaId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a3a0f2ad-a35a-4220-a5af-210ffbd2d4c5
+		sourceLineageTag: ParentAreaId
+		summarizeBy: none
+		sourceColumn: ParentAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimWorkCenter = entity
+		mode: directLake
+		source
+			entityName: DimWorkCenter
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

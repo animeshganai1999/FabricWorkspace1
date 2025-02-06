@@ -1,0 +1,64 @@
+table DimMaterial
+	lineageTag: 6f564a5d-16e0-45cb-9e74-8b04d5dc9f0a
+	sourceLineageTag: [MdsfGold].[DimMaterial]
+
+	column MaterialRecordId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 27598e24-c6dd-42bb-a037-b0fbd682eb4b
+		sourceLineageTag: MaterialRecordId
+		summarizeBy: none
+		sourceColumn: MaterialRecordId
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaterialId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1a78df76-4c3d-4735-af4e-ad24cfa9406a
+		sourceLineageTag: MaterialId
+		summarizeBy: none
+		sourceColumn: MaterialId
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaterialName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 38e39671-c842-4939-be65-f4c29a0e6eed
+		sourceLineageTag: MaterialName
+		summarizeBy: none
+		sourceColumn: MaterialName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaterialCode
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e1203f78-c74c-4178-80d9-12c34d8886d5
+		sourceLineageTag: MaterialCode
+		summarizeBy: none
+		sourceColumn: MaterialCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitOfMeasure
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 7d531218-64c0-48d8-87b2-11a034b4a0d6
+		sourceLineageTag: UnitOfMeasure
+		summarizeBy: none
+		sourceColumn: UnitOfMeasure
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimMaterial = entity
+		mode: directLake
+		source
+			entityName: DimMaterial
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

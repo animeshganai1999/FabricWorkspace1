@@ -1,0 +1,62 @@
+table DimTime
+	lineageTag: fcea7a82-e945-4ef8-85e5-2d866f5589c7
+	sourceLineageTag: [MdsfGold].[DimTime]
+
+	column TimeId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6020ed76-7482-463d-b4a7-1798f5b88c11
+		sourceLineageTag: TimeId
+		summarizeBy: none
+		sourceColumn: TimeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeHour
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 87fa7185-abd1-4526-9f77-009042c53fee
+		sourceLineageTag: TimeHour
+		summarizeBy: none
+		sourceColumn: TimeHour
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column TimeMinute
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4d709f63-a9b9-4262-ab76-d8e300ed7027
+		sourceLineageTag: TimeMinute
+		summarizeBy: none
+		sourceColumn: TimeMinute
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column TimeSecond
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5dc030b6-dc96-4317-a6fe-cfa2f8dfba5b
+		sourceLineageTag: TimeSecond
+		summarizeBy: none
+		sourceColumn: TimeSecond
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	partition DimTime = entity
+		mode: directLake
+		source
+			entityName: DimTime
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

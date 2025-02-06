@@ -1,0 +1,99 @@
+table KpiDefinition
+	lineageTag: d42dfd1b-c6f7-49a5-90e3-e1093a92b2d6
+	sourceLineageTag: [MdsfGold].[KpiDefinition]
+
+	column KpiDefinitionId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 5da21ea3-ec78-4675-a5dc-864134f2c829
+		sourceLineageTag: KpiDefinitionId
+		summarizeBy: none
+		sourceColumn: KpiDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b29a6eb6-5b3e-4931-b2ea-f1d28410ed84
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 29a77596-fe44-43b5-80ff-376161f4292f
+		sourceLineageTag: TableName
+		summarizeBy: none
+		sourceColumn: TableName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ColumnName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: effa9f1c-c6a5-4eaa-84e2-b953aeb85be2
+		sourceLineageTag: ColumnName
+		summarizeBy: none
+		sourceColumn: ColumnName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Formula
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1efc12c0-d0fe-466a-88db-67c269536e94
+		sourceLineageTag: Formula
+		summarizeBy: none
+		sourceColumn: Formula
+
+		annotation SummarizationSetBy = Automatic
+
+	column RangeMin
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 013424d2-4511-4de1-ae33-9ab779868f0f
+		sourceLineageTag: RangeMin
+		summarizeBy: none
+		sourceColumn: RangeMin
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column RangeMax
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 08b532b6-6dec-4c0e-abce-2da753a8710b
+		sourceLineageTag: RangeMax
+		summarizeBy: none
+		sourceColumn: RangeMax
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column UnitOfMeasure
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 9923fbab-73f2-413b-9f8f-507b9bb0ed0f
+		sourceLineageTag: UnitOfMeasure
+		summarizeBy: none
+		sourceColumn: UnitOfMeasure
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KpiDefinition = entity
+		mode: directLake
+		source
+			entityName: KpiDefinition
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

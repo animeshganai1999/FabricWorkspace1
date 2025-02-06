@@ -1,0 +1,150 @@
+table AggMeasuresMaintenance
+	lineageTag: 96e1d537-1efb-4eea-9101-98ca715860c5
+	sourceLineageTag: [MdsfGold].[AggMeasuresMaintenance]
+
+	/// Calculates the average ratio of actual unit downtime to planned busy time across all productivity measures.
+	measure KpiDowntimeRatio =
+			AVERAGEX(
+			    'AggMeasuresProductivity',
+			    'AggMeasuresProductivity'[ActualUnitDownTime] / 'AggMeasuresProductivity'[PlannedBusyTime]
+			)
+		lineageTag: 0ad34bfb-c54d-43ca-b206-65b6822aa19a
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Calculates the average time to failure by dividing the total number of failure events by the average planned busy time.
+	measure KpiMeanTimeToFailure =
+			AVERAGEX(
+			    'AggMeasuresMaintenance',
+			    'AggMeasuresMaintenance'[FailureEvents] / AVERAGE('AggMeasuresProductivity'[PlannedBusyTime])
+			)
+		lineageTag: 5544c32b-f8e8-4d13-bfc1-1792b39e220b
+
+		changedProperty = Name
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AggLevelDefinitionId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 8cd52fa8-4fa9-42c4-bba5-ffec755d55db
+		sourceLineageTag: AggLevelDefinitionId
+		summarizeBy: none
+		sourceColumn: AggLevelDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimIntervalId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 925fea47-e5d1-4452-9137-832796e3d73f
+		sourceLineageTag: DimIntervalId
+		summarizeBy: none
+		sourceColumn: DimIntervalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimShiftId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: c7658475-26f7-4c34-9ad2-934be1cf198f
+		sourceLineageTag: DimShiftId
+		summarizeBy: none
+		sourceColumn: DimShiftId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimEnterpriseId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: e45f9892-bf4f-434f-84b2-b3e2423021b0
+		sourceLineageTag: DimEnterpriseId
+		summarizeBy: none
+		sourceColumn: DimEnterpriseId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimSiteId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 104ca52c-fdda-404c-add5-5251bbc80a33
+		sourceLineageTag: DimSiteId
+		summarizeBy: none
+		sourceColumn: DimSiteId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimAreaId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d4fb2bac-ea8b-4808-89a0-a6c5e12f9a1e
+		sourceLineageTag: DimAreaId
+		summarizeBy: none
+		sourceColumn: DimAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimWorkCenterId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 42b1894f-7283-46d3-bb25-e08142b1c10b
+		sourceLineageTag: DimWorkCenterId
+		summarizeBy: none
+		sourceColumn: DimWorkCenterId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimWorkUnitId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b5a4f01e-21b3-4f64-a2d1-743f09b2edf9
+		sourceLineageTag: DimWorkUnitId
+		summarizeBy: none
+		sourceColumn: DimWorkUnitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaintenanceEvents
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2a591eb1-d903-443c-98b3-132f54c98cc5
+		sourceLineageTag: MaintenanceEvents
+		summarizeBy: sum
+		sourceColumn: MaintenanceEvents
+
+		annotation SummarizationSetBy = Automatic
+
+	column FailureEvents
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 229bd75c-3af7-4efd-858b-d282c5f2cfee
+		sourceLineageTag: FailureEvents
+		summarizeBy: sum
+		sourceColumn: FailureEvents
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AggMeasuresMaintenance = entity
+		mode: directLake
+		source
+			entityName: AggMeasuresMaintenance
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

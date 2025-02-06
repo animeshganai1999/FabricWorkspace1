@@ -1,0 +1,81 @@
+table DimInterval
+	lineageTag: 85575d2e-ec4c-479c-a127-fa3d8f0e9c53
+	sourceLineageTag: [MdsfGold].[DimInterval]
+
+	column IntervalId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2272d4a9-3818-4f77-b852-09e73fecd17c
+		sourceLineageTag: IntervalId
+		summarizeBy: none
+		sourceColumn: IntervalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column IntervalDefinitionId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 8edfc762-2e5f-49ce-848b-baaa66035098
+		sourceLineageTag: IntervalDefinitionId
+		summarizeBy: none
+		sourceColumn: IntervalDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartTimestamp
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 7a3b0af2-a77c-4ac6-8eb3-d5c50c6da3d5
+		sourceLineageTag: StartTimestamp
+		summarizeBy: none
+		sourceColumn: StartTimestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column EndTimestamp
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 7e159874-68a4-45bd-92d1-cc18c118d625
+		sourceLineageTag: EndTimestamp
+		summarizeBy: none
+		sourceColumn: EndTimestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column StartDateId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 3a5d21c9-56cf-4c92-8075-83b00d85dc4a
+		sourceLineageTag: StartDateId
+		summarizeBy: none
+		sourceColumn: StartDateId
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column StartTimeId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5c4f95e2-e1ff-4c4c-a58a-e70bba0c2401
+		sourceLineageTag: StartTimeId
+		summarizeBy: none
+		sourceColumn: StartTimeId
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	partition DimInterval = entity
+		mode: directLake
+		source
+			entityName: DimInterval
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

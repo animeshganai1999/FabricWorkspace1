@@ -1,0 +1,172 @@
+relationship ffeb3c6b-b31b-c1f2-c9a2-9e50701ffd19
+	fromColumn: AggMeasuresMaintenance.AggLevelDefinitionId
+	toColumn: AggLevelDefinition.AggLevelDefinitionId
+
+relationship badc75e9-764f-88da-23c4-b6c06ebb95d3
+	fromColumn: AggMeasuresMaterialUse.AggLevelDefinitionId
+	toColumn: AggLevelDefinition.AggLevelDefinitionId
+
+relationship 54695e7a-61b8-be1c-370a-3c4962034e03
+	fromColumn: AggMeasuresProductivity.AggLevelDefinitionId
+	toColumn: AggLevelDefinition.AggLevelDefinitionId
+
+relationship f00a200c-126a-cd49-a1ba-a2e03f440983
+	fromColumn: AggMeasuresQuality.AggLevelDefinitionId
+	toColumn: AggLevelDefinition.AggLevelDefinitionId
+
+relationship 8253ccf3-796b-e519-a304-559867d5b359
+	fromColumn: AggMeasuresMaintenance.DimIntervalId
+	toColumn: DimInterval.IntervalId
+
+relationship 63910954-9350-4095-2851-8060f350872d
+	fromColumn: AggMeasuresMaterialUse.DimIntervalId
+	toColumn: DimInterval.IntervalId
+
+relationship c418eaf2-1537-d6a7-4580-ed5778f64f38
+	fromColumn: AggMeasuresProductivity.DimIntervalId
+	toColumn: DimInterval.IntervalId
+
+relationship b6639a16-e8c9-2cb7-66cd-85a56af7f11c
+	fromColumn: AggMeasuresQuality.DimIntervalId
+	toColumn: DimInterval.IntervalId
+
+relationship 9bf00468-3357-bbd8-67b9-32c454dc45ef
+	fromColumn: AggMeasuresProductivity.DimProducedMaterialId
+	toColumn: DimMaterial.MaterialRecordId
+
+relationship 66fede18-035b-2fb8-eb0c-00072fc0f418
+	fromColumn: AggMeasuresQuality.DimProducedMaterialId
+	toColumn: DimMaterial.MaterialRecordId
+
+relationship 7b33e058-641a-7b2e-f878-7a8e763c9e08
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: DimWorkUnit.ParentWorkCenterId
+	toColumn: DimWorkCenter.WorkCenterId
+
+relationship fbc24c3a-d961-734c-7a00-cadfa112ff31
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: DimWorkCenter.ParentAreaId
+	toColumn: DimArea.AreaId
+
+relationship a8db5369-10f4-62ca-6376-9897f64ccfa3
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: DimSite.ParentEnterpriseId
+	toColumn: DimEnterprise.EnterpriseId
+
+relationship 2a62eece-ec7f-ac4f-c314-151bff7ee227
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: DimArea.ParentSiteId
+	toColumn: DimSite.SiteId
+
+relationship 828187bb-43ac-8280-f231-3ecc076370be
+	fromColumn: AggMeasuresMaintenance.DimShiftId
+	toColumn: DimShift.ShiftId
+
+relationship bdbe2efe-78ad-2fef-ea8e-9740375049a0
+	fromColumn: AggMeasuresMaterialUse.DimShiftId
+	toColumn: DimShift.ShiftId
+
+relationship eca10066-d959-642a-d42e-4eb4f3bdef28
+	fromColumn: AggMeasuresProductivity.DimShiftId
+	toColumn: DimShift.ShiftId
+
+relationship 31185bee-6713-d452-1b5c-8f9d69aba5dd
+	fromColumn: AggMeasuresQuality.DimShiftId
+	toColumn: DimShift.ShiftId
+
+relationship c83d5971-8edd-0b6a-7fea-fbe47268d9f6
+	fromColumn: DimInterval.StartDateId
+	toColumn: DimDate.DateId
+
+relationship 80777051-8b87-3b76-91a5-ac8a7bc9ec31
+	fromColumn: AggMeasuresMaintenance.DimAreaId
+	toColumn: DimArea.AreaRecordId
+
+relationship 67229e31-01a4-1934-4e2a-6f21b3405138
+	fromColumn: AggMeasuresMaterialUse.DimAreaId
+	toColumn: DimArea.AreaRecordId
+
+relationship 6977fee8-c788-937e-30a4-7b2b6bf807b0
+	fromColumn: AggMeasuresProductivity.DimAreaId
+	toColumn: DimArea.AreaRecordId
+
+relationship 012b2df2-a476-4571-fef1-6bb010300e3f
+	fromColumn: AggMeasuresQuality.DimAreaId
+	toColumn: DimArea.AreaRecordId
+
+relationship 5730ddf8-a698-62d5-a9f3-c00d976cc407
+	fromColumn: AggMeasuresMaintenance.DimSiteId
+	toColumn: DimSite.SiteRecordId
+
+relationship 1079a844-0cc8-7eae-22c4-f94dd074e4d6
+	fromColumn: AggMeasuresMaterialUse.DimSiteId
+	toColumn: DimSite.SiteRecordId
+
+relationship 1b690a81-ebfa-e1e9-df36-78a275830502
+	fromColumn: AggMeasuresProductivity.DimSiteId
+	toColumn: DimSite.SiteRecordId
+
+relationship 835141a5-4522-308d-7361-3b7a7b2df5b4
+	fromColumn: AggMeasuresMaterialUse.DimMaterialId
+	toColumn: DimMaterial.MaterialRecordId
+
+relationship 7dfce3eb-8673-9240-64b8-38df73e2ab42
+	fromColumn: DimInterval.IntervalDefinitionId
+	toColumn: IntervalDefinition.IntervalDefinitionId
+
+relationship 442723e5-388c-82b8-97ee-ee951ff9fc97
+	fromColumn: AggMeasuresProductivity.DimEnterpriseId
+	toColumn: DimEnterprise.EnterpriseRecordId
+
+relationship 1ae79853-f01c-3b71-7b0c-eee4a0bd64cc
+	fromColumn: AggMeasuresProductivity.DimWorkCenterId
+	toColumn: DimWorkCenter.WorkCenterRecordId
+
+relationship 1ca72116-a266-845f-fa54-d72312943766
+	fromColumn: AggMeasuresProductivity.DimWorkUnitId
+	toColumn: DimWorkUnit.WorkUnitRecordId
+
+relationship a0e9b1ab-8f6a-f906-3d8b-4dcd0d42d8b9
+	fromColumn: AggMeasuresQuality.DimEnterpriseId
+	toColumn: DimEnterprise.EnterpriseRecordId
+
+relationship 9f86ede8-2dab-07cd-b6bb-d3cd3351ee30
+	fromColumn: AggMeasuresQuality.DimSiteId
+	toColumn: DimSite.SiteRecordId
+
+relationship 0a031187-6a2e-b070-36e8-a7606eb4ec43
+	fromColumn: AggMeasuresQuality.DimWorkCenterId
+	toColumn: DimWorkCenter.WorkCenterRecordId
+
+relationship aedaa87b-08d4-9c62-7472-ee1e8cee2cbe
+	fromColumn: AggMeasuresQuality.DimWorkUnitId
+	toColumn: DimWorkUnit.WorkUnitRecordId
+
+relationship 444114ef-e23a-4aec-f223-c71c3204e670
+	fromColumn: AggMeasuresMaintenance.DimEnterpriseId
+	toColumn: DimEnterprise.EnterpriseRecordId
+
+relationship 8209539b-84a6-f8fa-ba8b-898aaa569869
+	fromColumn: AggMeasuresMaintenance.DimWorkCenterId
+	toColumn: DimWorkCenter.WorkCenterRecordId
+
+relationship 9c2beded-2837-2045-0e9c-2eed06bacf7b
+	fromColumn: AggMeasuresMaintenance.DimWorkUnitId
+	toColumn: DimWorkUnit.WorkUnitRecordId
+
+relationship 0b851969-7f1f-382e-ba5e-54b07fc046e8
+	fromColumn: AggMeasuresMaterialUse.DimEnterpriseId
+	toColumn: DimEnterprise.EnterpriseRecordId
+
+relationship f6f49c3d-3c5f-9b8a-5645-7d21ec735970
+	fromColumn: AggMeasuresMaterialUse.DimWorkCenterId
+	toColumn: DimWorkCenter.WorkCenterRecordId
+
+relationship 7f30641a-3b7e-e53b-3e67-32fa4439ad41
+	fromColumn: AggMeasuresMaterialUse.DimWorkUnitId
+	toColumn: DimWorkUnit.WorkUnitRecordId
+

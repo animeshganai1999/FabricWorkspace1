@@ -1,0 +1,74 @@
+table AggLevelDefinition
+	lineageTag: c85c43fd-302e-4a09-bc86-56c9b073c3b1
+	sourceLineageTag: [MdsfGold].[AggLevelDefinition]
+
+	column AggLevelDefinitionId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6de5e57a-6b94-4ae0-981a-0bc55714ca13
+		sourceLineageTag: AggLevelDefinitionId
+		summarizeBy: none
+		sourceColumn: AggLevelDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6aed719a-857c-41b1-b4a9-fbfd15891128
+		sourceLineageTag: Name
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Domain
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 36fb3f55-8c8a-4150-8fdc-bd72be0fc46b
+		sourceLineageTag: Domain
+		summarizeBy: none
+		sourceColumn: Domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column DomainTableName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: abca5bae-c876-4805-afae-6bf5445bc2b2
+		sourceLineageTag: DomainTableName
+		summarizeBy: none
+		sourceColumn: DomainTableName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimensionsList
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1f2a56ec-a025-4d90-9471-45dc7a5ebf9f
+		sourceLineageTag: DimensionsList
+		summarizeBy: none
+		sourceColumn: DimensionsList
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0df3324e-fbf3-40ae-a1ec-8336fd5ab68b
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AggLevelDefinition = entity
+		mode: directLake
+		source
+			entityName: AggLevelDefinition
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

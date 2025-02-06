@@ -1,0 +1,38 @@
+model Model
+	culture: en-US
+	collation: Latin1_General_100_BIN2_UTF8
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.138.7469.2 (Main)
+
+annotation PBI_QueryOrder = ["DatabaseQuery"]
+
+annotation PBI_ProTooling = ["WebModelingEdit","Copilot","CopilotMeasureDescriptions"]
+
+ref table DimMaterial
+ref table DimShift
+ref table DimDate
+ref table AggMeasuresQuality
+ref table AggMeasuresMaterialUse
+ref table IntervalDefinition
+ref table MeasureDefinition
+ref table KpiDefinition
+ref table AggLevelDefinition
+ref table AggMeasuresMaintenance
+ref table AggMeasuresProductivity
+ref table DimTime
+ref table DimInterval
+ref table DimEnterprise
+ref table DimArea
+ref table DimSite
+ref table DimWorkUnit
+ref table DimWorkCenter
+
+ref cultureInfo en-US
+

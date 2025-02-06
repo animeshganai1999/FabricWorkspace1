@@ -1,0 +1,107 @@
+table DimDate
+	lineageTag: ed786ff8-2c38-421b-8169-185f5f4c9ca5
+	sourceLineageTag: [MdsfGold].[DimDate]
+	dataCategory: Time
+
+	column DateId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 60216a8b-5c9d-40ab-a4cc-5202e20e341c
+		sourceLineageTag: DateId
+		summarizeBy: none
+		sourceColumn: DateId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateVal
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		sourceProviderType: date
+		lineageTag: cf2220a1-9c9d-443c-bfbf-9278100d0825
+		sourceLineageTag: DateVal
+		summarizeBy: none
+		sourceColumn: DateVal
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DateYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5bdf687d-0162-4490-a7f4-798c57d26425
+		sourceLineageTag: DateYear
+		summarizeBy: none
+		sourceColumn: DateYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateMonth
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4a79ad7b-d150-46c8-8be2-71abe6d2f471
+		sourceLineageTag: DateMonth
+		summarizeBy: none
+		sourceColumn: DateMonth
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateDay
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 08a48101-5984-4a82-91de-39d22918a09e
+		sourceLineageTag: DateDay
+		summarizeBy: none
+		sourceColumn: DateDay
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Date Hierarchy'
+		lineageTag: 2fb804b4-701c-4edf-aa94-503133378bd4
+
+		level DateYear
+			lineageTag: 094cb9ca-26c5-47bc-b6d6-85b96896fda5
+			column: DateYear
+
+		level DateMonth
+			lineageTag: 61d96e82-ac29-4c23-a955-2d7edab525db
+			column: DateMonth
+
+		level DateDay
+			lineageTag: f790e4c6-d1d5-46c3-a609-be771ce0bdf5
+			column: DateDay
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+	partition DimDate = entity
+		mode: directLake
+		source
+			entityName: DimDate
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

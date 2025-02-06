@@ -1,0 +1,34 @@
+table DimShift
+	lineageTag: 3928270f-6d1f-449f-bb0d-b38e19860695
+	sourceLineageTag: [MdsfGold].[DimShift]
+
+	column ShiftId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 5735939e-7d51-4ee0-ba8f-d8e107868979
+		sourceLineageTag: ShiftId
+		summarizeBy: none
+		sourceColumn: ShiftId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShiftName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b2630142-9600-4ab5-a993-8f2168fb76eb
+		sourceLineageTag: ShiftName
+		summarizeBy: none
+		sourceColumn: ShiftName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimShift = entity
+		mode: directLake
+		source
+			entityName: DimShift
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

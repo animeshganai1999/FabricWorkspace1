@@ -1,0 +1,72 @@
+table DimEnterprise
+	lineageTag: 367e651a-36dd-4af2-b6d3-9cd12e02ce02
+	sourceLineageTag: [MdsfGold].[DimEnterprise]
+
+	column EnterpriseRecordId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 56d5cdda-6fa4-434c-85d3-5a1b4a944efe
+		sourceLineageTag: EnterpriseRecordId
+		summarizeBy: none
+		sourceColumn: EnterpriseRecordId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnterpriseId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a735f8ab-4939-4edd-ae9f-7caadc8bc29b
+		sourceLineageTag: EnterpriseId
+		summarizeBy: none
+		sourceColumn: EnterpriseId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EnterpriseName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 24c0c8ce-e024-41b8-9015-e20ef4c13a8a
+		sourceLineageTag: EnterpriseName
+		summarizeBy: none
+		sourceColumn: EnterpriseName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveRecordStartTimestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f857bc68-fcec-4bc3-a1c5-8d5982f1b58d
+		sourceLineageTag: ActiveRecordStartTimestamp
+		summarizeBy: none
+		sourceColumn: ActiveRecordStartTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveRecordEndTimestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 31c0408e-d4b0-4b38-9717-df7b47fad4cd
+		sourceLineageTag: ActiveRecordEndTimestamp
+		summarizeBy: none
+		sourceColumn: ActiveRecordEndTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimEnterprise = entity
+		mode: directLake
+		source
+			entityName: DimEnterprise
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

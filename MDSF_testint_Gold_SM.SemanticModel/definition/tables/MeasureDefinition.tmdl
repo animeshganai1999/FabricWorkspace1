@@ -1,0 +1,63 @@
+table MeasureDefinition
+	lineageTag: 11f53638-9032-4873-8213-55d63262436c
+	sourceLineageTag: [MdsfGold].[MeasureDefinition]
+
+	column MeasureDefinitionId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e0a8dec6-84fb-4bdb-aeaa-58497c5ff95b
+		sourceLineageTag: MeasureDefinitionId
+		summarizeBy: none
+		sourceColumn: MeasureDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d2a6a5ee-a6ac-4b5b-b6d3-f2a6de633dd8
+		sourceLineageTag: Description
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 607187d7-7c5e-4f4b-9b3d-3ecca5ba8076
+		sourceLineageTag: TableName
+		summarizeBy: none
+		sourceColumn: TableName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ColumnName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 6718914b-2412-4df3-a158-09163ef43df1
+		sourceLineageTag: ColumnName
+		summarizeBy: none
+		sourceColumn: ColumnName
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitOfMeasure
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: a35d1297-d2b1-4f3a-82a8-6ac92647e79c
+		sourceLineageTag: UnitOfMeasure
+		summarizeBy: none
+		sourceColumn: UnitOfMeasure
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MeasureDefinition = entity
+		mode: directLake
+		source
+			entityName: MeasureDefinition
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

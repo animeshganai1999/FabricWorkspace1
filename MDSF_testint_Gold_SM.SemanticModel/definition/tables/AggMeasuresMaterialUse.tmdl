@@ -1,0 +1,146 @@
+table AggMeasuresMaterialUse
+	lineageTag: ba69a70e-e6cc-49cf-9ae5-830f7dc9b069
+	sourceLineageTag: [MdsfGold].[AggMeasuresMaterialUse]
+
+	column AggLevelDefinitionId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: edd0ed8f-9cac-44dd-ad2f-b7f01f528fd0
+		sourceLineageTag: AggLevelDefinitionId
+		summarizeBy: none
+		sourceColumn: AggLevelDefinitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimIntervalId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d751ffd1-09c0-4307-b1ac-1b7299caf1ba
+		sourceLineageTag: DimIntervalId
+		summarizeBy: none
+		sourceColumn: DimIntervalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimShiftId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4b38bfae-4473-4390-8a57-0cad164f795d
+		sourceLineageTag: DimShiftId
+		summarizeBy: none
+		sourceColumn: DimShiftId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimEnterpriseId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: dab0d80d-235b-427c-a742-22ef2c2446ba
+		sourceLineageTag: DimEnterpriseId
+		summarizeBy: none
+		sourceColumn: DimEnterpriseId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimSiteId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 18849b8f-5b97-4a4a-9ea2-6dfec6004a82
+		sourceLineageTag: DimSiteId
+		summarizeBy: none
+		sourceColumn: DimSiteId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimAreaId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f51e98bd-8e34-4137-938a-bb60c1dcb24c
+		sourceLineageTag: DimAreaId
+		summarizeBy: none
+		sourceColumn: DimAreaId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimWorkCenterId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ab35562c-8737-468e-9ed7-ca2c646f8a7e
+		sourceLineageTag: DimWorkCenterId
+		summarizeBy: none
+		sourceColumn: DimWorkCenterId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimWorkUnitId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: cb8a056b-ed57-44b1-b618-4e3479325e20
+		sourceLineageTag: DimWorkUnitId
+		summarizeBy: none
+		sourceColumn: DimWorkUnitId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimMaterialId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 735afe6f-e684-4ce7-b0b5-d9f1df1d95b4
+		sourceLineageTag: DimMaterialId
+		summarizeBy: none
+		sourceColumn: DimMaterialId
+
+		annotation SummarizationSetBy = Automatic
+
+	column DimJobId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d995702e-881b-4e33-9642-3e66f307d438
+		sourceLineageTag: DimJobId
+		summarizeBy: none
+		sourceColumn: DimJobId
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column PlannedUseQuantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 65d1d61a-985c-441b-a24d-b23edf0adefa
+		sourceLineageTag: PlannedUseQuantity
+		summarizeBy: sum
+		sourceColumn: PlannedUseQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActualUseQuantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: decimal(10, 0)
+		lineageTag: 572345f3-ed66-45f5-af30-56dcfbf1ceaf
+		sourceLineageTag: ActualUseQuantity
+		summarizeBy: sum
+		sourceColumn: ActualUseQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AggMeasuresMaterialUse = entity
+		mode: directLake
+		source
+			entityName: AggMeasuresMaterialUse
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

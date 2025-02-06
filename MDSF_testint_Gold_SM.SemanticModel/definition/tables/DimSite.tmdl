@@ -1,0 +1,84 @@
+table DimSite
+	lineageTag: 53efd485-dfc6-4ac3-98e8-a134f4c3935f
+	sourceLineageTag: [MdsfGold].[DimSite]
+
+	column SiteRecordId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9c40aadf-deda-476d-aca9-12020449173a
+		sourceLineageTag: SiteRecordId
+		summarizeBy: none
+		sourceColumn: SiteRecordId
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column SiteId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 05bb1c18-93ba-4827-8b7d-d6a7de8a2582
+		sourceLineageTag: SiteId
+		summarizeBy: none
+		sourceColumn: SiteId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SiteName
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 34ef13a2-9148-4404-9c1a-d7ed170d1959
+		sourceLineageTag: SiteName
+		summarizeBy: none
+		sourceColumn: SiteName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveRecordStartTimestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c7245a1d-bd06-4f00-bd95-c4834c0e077a
+		sourceLineageTag: ActiveRecordStartTimestamp
+		summarizeBy: none
+		sourceColumn: ActiveRecordStartTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActiveRecordEndTimestamp
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d38f46dc-5eae-4d01-ab17-420709c066f9
+		sourceLineageTag: ActiveRecordEndTimestamp
+		summarizeBy: none
+		sourceColumn: ActiveRecordEndTimestamp
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentEnterpriseId
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0af6e032-03a5-411b-8a51-7e87cec50e40
+		sourceLineageTag: ParentEnterpriseId
+		summarizeBy: none
+		sourceColumn: ParentEnterpriseId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSite = entity
+		mode: directLake
+		source
+			entityName: DimSite
+			schemaName: MdsfGold
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
