@@ -3,6 +3,9 @@
 # METADATA ********************
 
 # META {
+# META   "kernel_info": {
+# META     "name": "synapse_pyspark"
+# META   },
 # META   "dependencies": {
 # META     "lakehouse": {
 # META       "default_lakehouse": "10784708-f581-41d8-97b0-19a9c5e93061",
@@ -60,6 +63,13 @@
 # for table in tables_to_delete:
 #     result = spark.sql(f"DROP TABLE IF EXISTS {table}")
 
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
 
 # MARKDOWN ********************
 
@@ -444,3 +454,10 @@ class RetailModel:
 # Initialize the model and create the tables
 model = RetailModel(path=tables_path, spark=spark)
 model.create_entities()
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
