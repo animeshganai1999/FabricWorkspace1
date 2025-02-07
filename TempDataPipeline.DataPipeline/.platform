@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "DataPipeline",
-    "displayName": "MoveDataFromADO"
+    "displayName": "TempDataPipeline"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "b3d99272-4a96-bd6e-42dc-301ba3ca3bd0"
+    "logicalId": "88befac3-d462-966c-45ff-8dd51280f57e"
   }
 }
